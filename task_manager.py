@@ -114,4 +114,6 @@ Une classe abstraite est une classe qui ne peut pas être instanciée, elle doit
 
 Une interface est un certain type de classe abstraite, en python on retrouve ce comportement avec la classe Protocol
 https://peps.python.org/pep-0544/
+
+Protocols vs ABCs in Python - When to Use Which One? : https://youtu.be/dryNwWvSd4M?si=Ob9ADuHq80d39vMe
 """
