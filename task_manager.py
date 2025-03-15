@@ -108,4 +108,10 @@ on passe en argument soit un FileRepository soit un DatabaseRepository, peu impo
 implémente / respecte l'interface Repository, à savoir disposer d'une fonction save et d'une fonction load.
 
 -> https://youtu.be/J1f5b4vcxCQ?si=N0M58kc8xhVovgmC
+
+Python dispose d'un module ABC avec classes et méthodes abstraites https://docs.python.org/3/library/abc.html
+Une classe abstraite est une classe qui ne peut pas être instanciée, elle doit être héritée par d'autres classes.
+
+Une interface est un certain type de classe abstraite, en python on retrouve ce comportement avec la classe Protocol
+https://peps.python.org/pep-0544/
 """
