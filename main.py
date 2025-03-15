@@ -35,6 +35,7 @@ def play():
             play_again = input("Do you want to play again? (yes/no): ")
             if play_again.lower() == "yes":
                 board = Board.new()  # Créer un nouveau plateau
+                # On se doute bien que Board.new() retourne un nouveau plateau
                 continue
             else:
                 quit()
