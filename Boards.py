@@ -29,6 +29,7 @@ class Board:
             if cell == " "]
 
     def is_won(self, player) -> bool:
+        # SIZE = 3 puis remplacer tous les 3 par la variable
         # Vérification des lignes et des colonnes
         for row in range(3):
             if all(self.position[row][col] == player for col in range(3)):  # Lignes
@@ -41,6 +42,26 @@ class Board:
         if all(self.position[i][2 - i] == player for i in range(3)):  # Diagonale secondaire
             return True
         return False
+
+        # Si vous avez besoin d'un commentaire c'est que le code n'est pas assez "humain":
+        row_win = all(self.position[row][col] == player for col in range(3))
+        col_win = all(self.position[col][row] == player for col in range(3))
+        principal_diagonal_win = all(self.position[i][i] == player for i in range(3))
+        secondary_diagonal_win = all(self.position[i][2 - i] == player for i in range(3))
+
+        return any(row_win, col_win, principal_diagonal_win, secondary_diagonal_win)
+
+        # Etant donné que la fonction any() retournera True dès qu'une des conditions est validée,
+        # on peut avoir envie d'en faire des fonctions afin de ne pas recalculer les 4 à chaque fois
+        def row_win():
+            return all(self.position[row][col] == player for col in range(3))
+        ...
+        return any(row_win(), col_win(), principal_diagonal_win(), secondary_diagonal_win())
+        """Ici si row_win() return True, python ne cherchera pas à savoir si col_win() etc valent True ou pas,
+        étant donné que any() aura déjà 1 element de True il ne regardera pas la valeur des autres. Encore une
+        fois la performance ne devrait pas être un problème surtout pour si peu, le but est surtout d'éviter le
+        commentaire en le remplacant par du code plus "humain" qui permet de comprendre sans se poser de question."""
+
 
     def play_turn(self, player, pos_y, pos_x):
         if self.position[pos_y][pos_x] != " ":
